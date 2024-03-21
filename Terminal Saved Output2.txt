@@ -1,0 +1,792 @@
+Last login: Tue Mar 19 06:21:49 on console
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Tonias-MacBook-Pro:~ tdollinger$ ssh -i "npyc-flask.pem" ec2-user@ec2-44-201-178-43.compute-1.amazonaws.com
+Warning: Identity file npyc-flask.pem not accessible: No such file or directory.
+The authenticity of host 'ec2-44-201-178-43.compute-1.amazonaws.com (44.201.178.43)' can't be established.
+ECDSA key fingerprint is SHA256:SQZtIhqDLPrG9Pc7j9k+U3uvCD3HkQeVo1v1hjfyslQ.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ec2-44-201-178-43.compute-1.amazonaws.com,44.201.178.43' (ECDSA) to the list of known hosts.
+ec2-user@ec2-44-201-178-43.compute-1.amazonaws.com: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+Tonias-MacBook-Pro:~ tdollinger$ pwd
+/Users/tdollinger
+Tonias-MacBook-Pro:~ tdollinger$ cd NPYC
+Tonias-MacBook-Pro:NPYC tdollinger$ ls
+Files not in Folders	README.md		npyc-flask.pem		random-files
+Tonias-MacBook-Pro:NPYC tdollinger$ cd NPYC
+-bash: cd: NPYC: No such file or directory
+Tonias-MacBook-Pro:NPYC tdollinger$ ssh -i "npyc-flask.pem" ec2-user@ec2-44-201-178-43.compute-1.amazonaws.com
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Wed Mar 20 11:47:16 2024 from 18.206.107.28
+[ec2-user@ip-172-31-89-154 ~]$ sudo yum install python3 -y
+Last metadata expiration check: 1 day, 10:24:52 ago on Wed Mar 20 11:21:32 2024.
+Package python3-3.9.16-1.amzn2023.0.6.x86_64 is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[ec2-user@ip-172-31-89-154 ~]$ sudo yum install gcc python3-devel -y
+Last metadata expiration check: 1 day, 10:25:03 ago on Wed Mar 20 11:21:32 2024.
+Dependencies resolved.
+==============================================================================================================================================================
+ Package                                  Architecture                 Version                                        Repository                         Size
+==============================================================================================================================================================
+Installing:
+ gcc                                      x86_64                       11.4.1-2.amzn2023.0.2                          amazonlinux                        32 M
+ python3-devel                            x86_64                       3.9.16-1.amzn2023.0.6                          amazonlinux                       206 k
+Installing dependencies:
+ annobin-docs                             noarch                       10.93-1.amzn2023.0.1                           amazonlinux                        92 k
+ annobin-plugin-gcc                       x86_64                       10.93-1.amzn2023.0.1                           amazonlinux                       887 k
+ cpp                                      x86_64                       11.4.1-2.amzn2023.0.2                          amazonlinux                        10 M
+ gc                                       x86_64                       8.0.4-5.amzn2023.0.2                           amazonlinux                       105 k
+ glibc-devel                              x86_64                       2.34-52.amzn2023.0.7                           amazonlinux                        45 k
+ glibc-headers-x86                        noarch                       2.34-52.amzn2023.0.7                           amazonlinux                       446 k
+ guile22                                  x86_64                       2.2.7-2.amzn2023.0.3                           amazonlinux                       6.4 M
+ kernel-headers                           x86_64                       6.1.79-99.164.amzn2023                         amazonlinux                       1.4 M
+ libmpc                                   x86_64                       1.2.1-2.amzn2023.0.2                           amazonlinux                        62 k
+ libtool-ltdl                             x86_64                       2.4.7-1.amzn2023.0.3                           amazonlinux                        38 k
+ libxcrypt-devel                          x86_64                       4.4.33-7.amzn2023                              amazonlinux                        32 k
+ make                                     x86_64                       1:4.3-5.amzn2023.0.2                           amazonlinux                       534 k
+
+Transaction Summary
+==============================================================================================================================================================
+Install  14 Packages
+
+Total download size: 53 M
+Installed size: 168 M
+Downloading Packages:
+(1/14): glibc-devel-2.34-52.amzn2023.0.7.x86_64.rpm                                                                           736 kB/s |  45 kB     00:00    
+(2/14): kernel-headers-6.1.79-99.164.amzn2023.x86_64.rpm                                                                       15 MB/s | 1.4 MB     00:00    
+(3/14): make-4.3-5.amzn2023.0.2.x86_64.rpm                                                                                     11 MB/s | 534 kB     00:00    
+(4/14): annobin-plugin-gcc-10.93-1.amzn2023.0.1.x86_64.rpm                                                                     28 MB/s | 887 kB     00:00    
+(5/14): gc-8.0.4-5.amzn2023.0.2.x86_64.rpm                                                                                    5.0 MB/s | 105 kB     00:00    
+(6/14): libtool-ltdl-2.4.7-1.amzn2023.0.3.x86_64.rpm                                                                          2.4 MB/s |  38 kB     00:00    
+(7/14): libxcrypt-devel-4.4.33-7.amzn2023.x86_64.rpm                                                                          1.2 MB/s |  32 kB     00:00    
+(8/14): libmpc-1.2.1-2.amzn2023.0.2.x86_64.rpm                                                                                3.0 MB/s |  62 kB     00:00    
+(9/14): guile22-2.2.7-2.amzn2023.0.3.x86_64.rpm                                                                                30 MB/s | 6.4 MB     00:00    
+(10/14): python3-devel-3.9.16-1.amzn2023.0.6.x86_64.rpm                                                                       2.8 MB/s | 206 kB     00:00    
+(11/14): annobin-docs-10.93-1.amzn2023.0.1.noarch.rpm                                                                         5.7 MB/s |  92 kB     00:00    
+(12/14): cpp-11.4.1-2.amzn2023.0.2.x86_64.rpm                                                                                  28 MB/s |  10 MB     00:00    
+(13/14): glibc-headers-x86-2.34-52.amzn2023.0.7.noarch.rpm                                                                    5.0 MB/s | 446 kB     00:00    
+(14/14): gcc-11.4.1-2.amzn2023.0.2.x86_64.rpm                                                                                  42 MB/s |  32 MB     00:00    
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                          64 MB/s |  53 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                      1/1 
+  Installing       : libmpc-1.2.1-2.amzn2023.0.2.x86_64                                                                                                  1/14 
+  Installing       : cpp-11.4.1-2.amzn2023.0.2.x86_64                                                                                                    2/14 
+  Installing       : glibc-headers-x86-2.34-52.amzn2023.0.7.noarch                                                                                       3/14 
+  Installing       : annobin-docs-10.93-1.amzn2023.0.1.noarch                                                                                            4/14 
+  Installing       : libtool-ltdl-2.4.7-1.amzn2023.0.3.x86_64                                                                                            5/14 
+  Installing       : gc-8.0.4-5.amzn2023.0.2.x86_64                                                                                                      6/14 
+  Installing       : guile22-2.2.7-2.amzn2023.0.3.x86_64                                                                                                 7/14 
+  Installing       : make-1:4.3-5.amzn2023.0.2.x86_64                                                                                                    8/14 
+  Installing       : kernel-headers-6.1.79-99.164.amzn2023.x86_64                                                                                        9/14 
+  Installing       : libxcrypt-devel-4.4.33-7.amzn2023.x86_64                                                                                           10/14 
+  Installing       : glibc-devel-2.34-52.amzn2023.0.7.x86_64                                                                                            11/14 
+  Installing       : gcc-11.4.1-2.amzn2023.0.2.x86_64                                                                                                   12/14 
+  Running scriptlet: gcc-11.4.1-2.amzn2023.0.2.x86_64                                                                                                   12/14 
+  Installing       : annobin-plugin-gcc-10.93-1.amzn2023.0.1.x86_64                                                                                     13/14 
+  Running scriptlet: annobin-plugin-gcc-10.93-1.amzn2023.0.1.x86_64                                                                                     13/14 
+  Installing       : python3-devel-3.9.16-1.amzn2023.0.6.x86_64                                                                                         14/14 
+  Running scriptlet: python3-devel-3.9.16-1.amzn2023.0.6.x86_64                                                                                         14/14 
+  Verifying        : gcc-11.4.1-2.amzn2023.0.2.x86_64                                                                                                    1/14 
+  Verifying        : glibc-devel-2.34-52.amzn2023.0.7.x86_64                                                                                             2/14 
+  Verifying        : kernel-headers-6.1.79-99.164.amzn2023.x86_64                                                                                        3/14 
+  Verifying        : make-1:4.3-5.amzn2023.0.2.x86_64                                                                                                    4/14 
+  Verifying        : annobin-plugin-gcc-10.93-1.amzn2023.0.1.x86_64                                                                                      5/14 
+  Verifying        : gc-8.0.4-5.amzn2023.0.2.x86_64                                                                                                      6/14 
+  Verifying        : libxcrypt-devel-4.4.33-7.amzn2023.x86_64                                                                                            7/14 
+  Verifying        : libtool-ltdl-2.4.7-1.amzn2023.0.3.x86_64                                                                                            8/14 
+  Verifying        : libmpc-1.2.1-2.amzn2023.0.2.x86_64                                                                                                  9/14 
+  Verifying        : guile22-2.2.7-2.amzn2023.0.3.x86_64                                                                                                10/14 
+  Verifying        : cpp-11.4.1-2.amzn2023.0.2.x86_64                                                                                                   11/14 
+  Verifying        : python3-devel-3.9.16-1.amzn2023.0.6.x86_64                                                                                         12/14 
+  Verifying        : annobin-docs-10.93-1.amzn2023.0.1.noarch                                                                                           13/14 
+  Verifying        : glibc-headers-x86-2.34-52.amzn2023.0.7.noarch                                                                                      14/14 
+==============================================================================================================================================================
+WARNING:
+  A newer release of "Amazon Linux" is available.
+
+  Available Versions:
+
+  Version 2023.4.20240319:
+    Run the following command to upgrade to 2023.4.20240319:
+
+      dnf upgrade --releasever=2023.4.20240319
+
+    Release notes:
+     https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes-2023.4.20240319.html
+
+==============================================================================================================================================================
+
+Installed:
+  annobin-docs-10.93-1.amzn2023.0.1.noarch            annobin-plugin-gcc-10.93-1.amzn2023.0.1.x86_64       cpp-11.4.1-2.amzn2023.0.2.x86_64                  
+  gc-8.0.4-5.amzn2023.0.2.x86_64                      gcc-11.4.1-2.amzn2023.0.2.x86_64                     glibc-devel-2.34-52.amzn2023.0.7.x86_64           
+  glibc-headers-x86-2.34-52.amzn2023.0.7.noarch       guile22-2.2.7-2.amzn2023.0.3.x86_64                  kernel-headers-6.1.79-99.164.amzn2023.x86_64      
+  libmpc-1.2.1-2.amzn2023.0.2.x86_64                  libtool-ltdl-2.4.7-1.amzn2023.0.3.x86_64             libxcrypt-devel-4.4.33-7.amzn2023.x86_64          
+  make-1:4.3-5.amzn2023.0.2.x86_64                    python3-devel-3.9.16-1.amzn2023.0.6.x86_64          
+
+Complete!
+[ec2-user@ip-172-31-89-154 ~]$ sudo pip3 install virtualenv
+sudo: pip3: command not found
+[ec2-user@ip-172-31-89-154 ~]$ python get-pip.py
+-bash: python: command not found
+[ec2-user@ip-172-31-89-154 ~]$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 2574k  100 2574k    0     0  37.4M      0 --:--:-- --:--:-- --:--:-- 37.5M
+[ec2-user@ip-172-31-89-154 ~]$ ls
+get-pip.py
+[ec2-user@ip-172-31-89-154 ~]$ pwd
+/home/ec2-user
+[ec2-user@ip-172-31-89-154 ~]$ python get-pip.py
+-bash: python: command not found
+[ec2-user@ip-172-31-89-154 ~]$ python3 get-pip.py
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pip
+  Downloading pip-24.0-py3-none-any.whl.metadata (3.6 kB)
+Collecting wheel
+  Downloading wheel-0.43.0-py3-none-any.whl.metadata (2.2 kB)
+Downloading pip-24.0-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 49.4 MB/s eta 0:00:00
+Downloading wheel-0.43.0-py3-none-any.whl (65 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.8/65.8 kB 10.7 MB/s eta 0:00:00
+Installing collected packages: wheel, pip
+Successfully installed pip-24.0 wheel-0.43.0
+[ec2-user@ip-172-31-89-154 ~]$ 
+[ec2-user@ip-172-31-89-154 ~]$ 
+[ec2-user@ip-172-31-89-154 ~]$ 
+[ec2-user@ip-172-31-89-154 ~]$ pip help
+
+Usage:   
+  pip <command> [options]
+
+Commands:
+  install                     Install packages.
+  download                    Download packages.
+  uninstall                   Uninstall packages.
+  freeze                      Output installed packages in requirements format.
+  inspect                     Inspect the python environment.
+  list                        List installed packages.
+  show                        Show information about installed packages.
+  check                       Verify installed packages have compatible dependencies.
+  config                      Manage local and global configuration.
+  search                      Search PyPI for packages.
+  cache                       Inspect and manage pip's wheel cache.
+  index                       Inspect information available from package indexes.
+  wheel                       Build wheels from your requirements.
+  hash                        Compute hashes of package archives.
+  completion                  A helper command used for command completion.
+  debug                       Show information useful for debugging.
+  help                        Show help for commands.
+
+General Options:
+  -h, --help                  Show help.
+  --debug                     Let unhandled exceptions propagate outside the main subroutine, instead of logging them to stderr.
+  --isolated                  Run pip in an isolated mode, ignoring environment variables and user configuration.
+  --require-virtualenv        Allow pip to only run in a virtual environment; exit with an error otherwise.
+  --python <python>           Run pip with the specified Python interpreter.
+  -v, --verbose               Give more output. Option is additive, and can be used up to 3 times.
+  -V, --version               Show version and exit.
+  -q, --quiet                 Give less output. Option is additive, and can be used up to 3 times (corresponding to WARNING, ERROR, and CRITICAL logging
+                              levels).
+  --log <path>                Path to a verbose appending log.
+  --no-input                  Disable prompting for input.
+  --keyring-provider <keyring_provider>
+                              Enable the credential lookup via the keyring library if user input is allowed. Specify which mechanism to use [disabled,
+                              import, subprocess]. (default: disabled)
+  --proxy <proxy>             Specify a proxy in the form scheme://[user:passwd@]proxy.server:port.
+  --retries <retries>         Maximum number of retries each connection should attempt (default 5 times).
+  --timeout <sec>             Set the socket timeout (default 15 seconds).
+  --exists-action <action>    Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup, (a)bort.
+  --trusted-host <hostname>   Mark this host or host:port pair as trusted, even though it does not have valid or any HTTPS.
+  --cert <path>               Path to PEM-encoded CA certificate bundle. If provided, overrides the default. See 'SSL Certificate Verification' in pip
+                              documentation for more information.
+  --client-cert <path>        Path to SSL client certificate, a single file containing the private key and the certificate in PEM format.
+  --cache-dir <dir>           Store the cache data in <dir>.
+  --no-cache-dir              Disable the cache.
+  --disable-pip-version-check
+                              Don't periodically check PyPI to determine whether a new version of pip is available for download. Implied with --no-index.
+  --no-color                  Suppress colored output.
+  --no-python-version-warning
+                              Silence deprecation warnings for upcoming unsupported Pythons.
+  --use-feature <feature>     Enable new functionality, that may be backward incompatible.
+  --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
+[ec2-user@ip-172-31-89-154 ~]$ sudo pip3 install virtualenv
+sudo: pip3: command not found
+[ec2-user@ip-172-31-89-154 ~]$ sudo pip install virtualenv
+sudo: pip: command not found
+[ec2-user@ip-172-31-89-154 ~]$ sudo pip install virtualenv
+sudo: pip: command not found
+[ec2-user@ip-172-31-89-154 ~]$ sudo pip3 install virtualenv
+sudo: pip3: command not found
+[ec2-user@ip-172-31-89-154 ~]$ sudo yum install python3 -y
+Last metadata expiration check: 1 day, 10:30:28 ago on Wed Mar 20 11:21:32 2024.
+Package python3-3.9.16-1.amzn2023.0.6.x86_64 is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[ec2-user@ip-172-31-89-154 ~]$ 
+[ec2-user@ip-172-31-89-154 ~]$ 
+[ec2-user@ip-172-31-89-154 ~]$ 
+[ec2-user@ip-172-31-89-154 ~]$ sudo apt update
+sudo: apt: command not found
+[ec2-user@ip-172-31-89-154 ~]$ sudo apt install python3-pip
+sudo: apt: command not found
+[ec2-user@ip-172-31-89-154 ~]$ sudo yum update
+Last metadata expiration check: 1 day, 10:32:12 ago on Wed Mar 20 11:21:32 2024.
+==============================================================================================================================================================
+WARNING:
+  A newer release of "Amazon Linux" is available.
+
+  Available Versions:
+
+  Version 2023.4.20240319:
+    Run the following command to upgrade to 2023.4.20240319:
+
+      dnf upgrade --releasever=2023.4.20240319
+
+    Release notes:
+     https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes-2023.4.20240319.html
+
+==============================================================================================================================================================
+Dependencies resolved.
+Nothing to do.
+Complete!
+[ec2-user@ip-172-31-89-154 ~]$ sudo yum –y install python3
+No such command: –y. Please use /usr/bin/yum --help
+It could be a YUM plugin command, try: "yum install 'dnf-command(–y)'"
+[ec2-user@ip-172-31-89-154 ~]$ sudo yum install python3
+Last metadata expiration check: 1 day, 10:32:45 ago on Wed Mar 20 11:21:32 2024.
+Package python3-3.9.16-1.amzn2023.0.6.x86_64 is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[ec2-user@ip-172-31-89-154 ~]$ sudo yum install python3-pip
+Last metadata expiration check: 1 day, 10:32:50 ago on Wed Mar 20 11:21:32 2024.
+Dependencies resolved.
+==============================================================================================================================================================
+ Package                                 Architecture                  Version                                       Repository                          Size
+==============================================================================================================================================================
+Installing:
+ python3-pip                             noarch                        21.3.1-2.amzn2023.0.7                         amazonlinux                        1.8 M
+Installing weak dependencies:
+ libxcrypt-compat                        x86_64                        4.4.33-7.amzn2023                             amazonlinux                         92 k
+
+Transaction Summary
+==============================================================================================================================================================
+Install  2 Packages
+
+Total download size: 1.9 M
+Installed size: 11 M
+Is this ok [y/N]: y
+Downloading Packages:
+(1/2): libxcrypt-compat-4.4.33-7.amzn2023.x86_64.rpm                                                                          1.4 MB/s |  92 kB     00:00    
+(2/2): python3-pip-21.3.1-2.amzn2023.0.7.noarch.rpm                                                                            16 MB/s | 1.8 MB     00:00    
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                          11 MB/s | 1.9 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                      1/1 
+  Installing       : libxcrypt-compat-4.4.33-7.amzn2023.x86_64                                                                                            1/2 
+  Installing       : python3-pip-21.3.1-2.amzn2023.0.7.noarch                                                                                             2/2 
+  Running scriptlet: python3-pip-21.3.1-2.amzn2023.0.7.noarch                                                                                             2/2 
+  Verifying        : libxcrypt-compat-4.4.33-7.amzn2023.x86_64                                                                                            1/2 
+  Verifying        : python3-pip-21.3.1-2.amzn2023.0.7.noarch                                                                                             2/2 
+==============================================================================================================================================================
+WARNING:
+  A newer release of "Amazon Linux" is available.
+
+  Available Versions:
+
+  Version 2023.4.20240319:
+    Run the following command to upgrade to 2023.4.20240319:
+
+      dnf upgrade --releasever=2023.4.20240319
+
+    Release notes:
+     https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes-2023.4.20240319.html
+
+==============================================================================================================================================================
+
+Installed:
+  libxcrypt-compat-4.4.33-7.amzn2023.x86_64                                      python3-pip-21.3.1-2.amzn2023.0.7.noarch                                     
+
+Complete!
+[ec2-user@ip-172-31-89-154 ~]$ pip3 -V
+pip 24.0 from /home/ec2-user/.local/lib/python3.9/site-packages/pip (python 3.9)
+[ec2-user@ip-172-31-89-154 ~]$ sudo pip3 install virtualenv
+Collecting virtualenv
+  Downloading virtualenv-20.25.1-py3-none-any.whl (3.8 MB)
+     |████████████████████████████████| 3.8 MB 5.0 MB/s            
+Collecting filelock<4,>=3.12.2
+  Downloading filelock-3.13.1-py3-none-any.whl (11 kB)
+Collecting distlib<1,>=0.3.7
+  Downloading distlib-0.3.8-py2.py3-none-any.whl (468 kB)
+     |████████████████████████████████| 468 kB 44.1 MB/s            
+Collecting platformdirs<5,>=3.9.1
+  Downloading platformdirs-4.2.0-py3-none-any.whl (17 kB)
+Installing collected packages: platformdirs, filelock, distlib, virtualenv
+Successfully installed distlib-0.3.8 filelock-3.13.1 platformdirs-4.2.0 virtualenv-20.25.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[ec2-user@ip-172-31-89-154 ~]$ mkdir myflask-proj
+[ec2-user@ip-172-31-89-154 ~]$ cd /home/ec2-user/myflask-proj
+[ec2-user@ip-172-31-89-154 myflask-proj]$ python3 -m venv venv
+[ec2-user@ip-172-31-89-154 myflask-proj]$ source venv/bin/activate
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ pip install Flask gunicorn
+Collecting Flask
+  Downloading flask-3.0.2-py3-none-any.whl (101 kB)
+     |████████████████████████████████| 101 kB 4.1 MB/s            
+Collecting gunicorn
+  Downloading gunicorn-21.2.0-py3-none-any.whl (80 kB)
+     |████████████████████████████████| 80 kB 10.8 MB/s            
+Collecting Werkzeug>=3.0.0
+  Downloading werkzeug-3.0.1-py3-none-any.whl (226 kB)
+     |████████████████████████████████| 226 kB 40.9 MB/s            
+Collecting click>=8.1.3
+  Downloading click-8.1.7-py3-none-any.whl (97 kB)
+     |████████████████████████████████| 97 kB 13.5 MB/s            
+Collecting Jinja2>=3.1.2
+  Downloading Jinja2-3.1.3-py3-none-any.whl (133 kB)
+     |████████████████████████████████| 133 kB 48.4 MB/s            
+Collecting itsdangerous>=2.1.2
+  Downloading itsdangerous-2.1.2-py3-none-any.whl (15 kB)
+Collecting blinker>=1.6.2
+  Downloading blinker-1.7.0-py3-none-any.whl (13 kB)
+Collecting importlib-metadata>=3.6.0
+  Downloading importlib_metadata-7.1.0-py3-none-any.whl (24 kB)
+Collecting packaging
+  Downloading packaging-24.0-py3-none-any.whl (53 kB)
+     |████████████████████████████████| 53 kB 3.3 MB/s             
+Collecting zipp>=0.5
+  Downloading zipp-3.18.1-py3-none-any.whl (8.2 kB)
+Collecting MarkupSafe>=2.0
+  Downloading MarkupSafe-2.1.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+Installing collected packages: zipp, MarkupSafe, Werkzeug, packaging, Jinja2, itsdangerous, importlib-metadata, click, blinker, gunicorn, Flask
+Successfully installed Flask-3.0.2 Jinja2-3.1.3 MarkupSafe-2.1.5 Werkzeug-3.0.1 blinker-1.7.0 click-8.1.7 gunicorn-21.2.0 importlib-metadata-7.1.0 itsdangerous-2.1.2 packaging-24.0 zipp-3.18.1
+WARNING: You are using pip version 21.3.1; however, version 24.0 is available.
+You should consider upgrading via the '/home/ec2-user/myflask-proj/venv/bin/python3 -m pip install --upgrade pip' command.
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ pwd
+/home/ec2-user/myflask-proj
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ vi app.py
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ mkdir templates
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ pwd
+/home/ec2-user/myflask-proj
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ cd templates/
+(venv) [ec2-user@ip-172-31-89-154 templates]$ ls
+(venv) [ec2-user@ip-172-31-89-154 templates]$ vi index.html
+(venv) [ec2-user@ip-172-31-89-154 templates]$ touch /home/ec2-user/myflask-proj/templates/500.html
+(venv) [ec2-user@ip-172-31-89-154 templates]$ sudo chmod -R +r /home/ec2-user/myflask-proj
+(venv) [ec2-user@ip-172-31-89-154 templates]$ gunicorn -w 1 -b 0.0.0.0:5000 app:app
+[2024-03-21 21:58:17 +0000] [83536] [INFO] Starting gunicorn 21.2.0
+[2024-03-21 21:58:17 +0000] [83536] [INFO] Listening at: http://0.0.0.0:5000 (83536)
+[2024-03-21 21:58:17 +0000] [83536] [INFO] Using worker: sync
+[2024-03-21 21:58:17 +0000] [83537] [INFO] Booting worker with pid: 83537
+[2024-03-21 21:58:17 +0000] [83537] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/ec2-user/myflask-proj/venv/lib64/python3.9/site-packages/gunicorn/arbiter.py", line 609, in spawn_worker
+    worker.init_process()
+  File "/home/ec2-user/myflask-proj/venv/lib64/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/ec2-user/myflask-proj/venv/lib64/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/ec2-user/myflask-proj/venv/lib64/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/ec2-user/myflask-proj/venv/lib64/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/ec2-user/myflask-proj/venv/lib64/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/ec2-user/myflask-proj/venv/lib64/python3.9/site-packages/gunicorn/util.py", line 371, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib64/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'app'
+[2024-03-21 21:58:17 +0000] [83537] [INFO] Worker exiting (pid: 83537)
+[2024-03-21 21:58:17 +0000] [83536] [ERROR] Worker (pid:83537) exited with code 3
+[2024-03-21 21:58:17 +0000] [83536] [ERROR] Shutting down: Master
+[2024-03-21 21:58:17 +0000] [83536] [ERROR] Reason: Worker failed to boot.
+(venv) [ec2-user@ip-172-31-89-154 templates]$ pw
+-bash: pw: command not found
+(venv) [ec2-user@ip-172-31-89-154 templates]$ pwd
+/home/ec2-user/myflask-proj/templates
+(venv) [ec2-user@ip-172-31-89-154 templates]$ ls
+500.html  index.html
+(venv) [ec2-user@ip-172-31-89-154 templates]$ cd ..
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ gunicorn -w 1 -b 0.0.0.0:5000 app:app
+[2024-03-21 21:58:31 +0000] [83540] [INFO] Starting gunicorn 21.2.0
+[2024-03-21 21:58:31 +0000] [83540] [INFO] Listening at: http://0.0.0.0:5000 (83540)
+[2024-03-21 21:58:31 +0000] [83540] [INFO] Using worker: sync
+[2024-03-21 21:58:31 +0000] [83541] [INFO] Booting worker with pid: 83541
+^C[2024-03-21 21:59:26 +0000] [83540] [INFO] Handling signal: int
+[2024-03-21 21:59:26 +0000] [83541] [INFO] Worker exiting (pid: 83541)
+[2024-03-21 21:59:26 +0000] [83540] [INFO] Shutting down: Master
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ sudo amazon-linux-extras install nginx1
+sudo: amazon-linux-extras: command not found
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ sudo mkdir -p /etc/ssl/nginx
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ sudo yum install ca-certificates
+Last metadata expiration check: 1 day, 10:56:27 ago on Wed Mar 20 11:21:32 2024.
+Package ca-certificates-2023.2.64-1.0.amzn2023.0.1.noarch is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ sudo yum install nginx-plus
+Last metadata expiration check: 1 day, 10:56:53 ago on Wed Mar 20 11:21:32 2024.
+No match for argument: nginx-plus
+Error: Unable to find a match: nginx-plus
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ sudo yum install nginx
+Last metadata expiration check: 1 day, 10:56:59 ago on Wed Mar 20 11:21:32 2024.
+Dependencies resolved.
+==============================================================================================================================================================
+ Package                                   Architecture                 Version                                       Repository                         Size
+==============================================================================================================================================================
+Installing:
+ nginx                                     x86_64                       1:1.24.0-1.amzn2023.0.2                       amazonlinux                        32 k
+Installing dependencies:
+ generic-logos-httpd                       noarch                       18.0.0-12.amzn2023.0.3                        amazonlinux                        19 k
+ gperftools-libs                           x86_64                       2.9.1-1.amzn2023.0.3                          amazonlinux                       308 k
+ libunwind                                 x86_64                       1.4.0-5.amzn2023.0.2                          amazonlinux                        66 k
+ nginx-core                                x86_64                       1:1.24.0-1.amzn2023.0.2                       amazonlinux                       586 k
+ nginx-filesystem                          noarch                       1:1.24.0-1.amzn2023.0.2                       amazonlinux                       9.1 k
+ nginx-mimetypes                           noarch                       2.1.49-3.amzn2023.0.3                         amazonlinux                        21 k
+
+Transaction Summary
+==============================================================================================================================================================
+Install  7 Packages
+
+Total download size: 1.0 M
+Installed size: 3.4 M
+Is this ok [y/N]: y
+Downloading Packages:
+(1/7): nginx-1.24.0-1.amzn2023.0.2.x86_64.rpm                                                                                 518 kB/s |  32 kB     00:00    
+(2/7): nginx-core-1.24.0-1.amzn2023.0.2.x86_64.rpm                                                                            8.0 MB/s | 586 kB     00:00    
+(3/7): gperftools-libs-2.9.1-1.amzn2023.0.3.x86_64.rpm                                                                        3.8 MB/s | 308 kB     00:00    
+(4/7): libunwind-1.4.0-5.amzn2023.0.2.x86_64.rpm                                                                              3.5 MB/s |  66 kB     00:00    
+(5/7): generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch.rpm                                                                  1.4 MB/s |  19 kB     00:00    
+(6/7): nginx-filesystem-1.24.0-1.amzn2023.0.2.noarch.rpm                                                                      682 kB/s | 9.1 kB     00:00    
+(7/7): nginx-mimetypes-2.1.49-3.amzn2023.0.3.noarch.rpm                                                                       1.6 MB/s |  21 kB     00:00    
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                         6.2 MB/s | 1.0 MB     00:00     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                      1/1 
+  Running scriptlet: nginx-filesystem-1:1.24.0-1.amzn2023.0.2.noarch                                                                                      1/7 
+  Installing       : nginx-filesystem-1:1.24.0-1.amzn2023.0.2.noarch                                                                                      1/7 
+  Installing       : nginx-mimetypes-2.1.49-3.amzn2023.0.3.noarch                                                                                         2/7 
+  Installing       : generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch                                                                                    3/7 
+  Installing       : libunwind-1.4.0-5.amzn2023.0.2.x86_64                                                                                                4/7 
+  Installing       : gperftools-libs-2.9.1-1.amzn2023.0.3.x86_64                                                                                          5/7 
+  Installing       : nginx-core-1:1.24.0-1.amzn2023.0.2.x86_64                                                                                            6/7 
+  Installing       : nginx-1:1.24.0-1.amzn2023.0.2.x86_64                                                                                                 7/7 
+  Running scriptlet: nginx-1:1.24.0-1.amzn2023.0.2.x86_64                                                                                                 7/7 
+  Verifying        : nginx-core-1:1.24.0-1.amzn2023.0.2.x86_64                                                                                            1/7 
+  Verifying        : nginx-1:1.24.0-1.amzn2023.0.2.x86_64                                                                                                 2/7 
+  Verifying        : gperftools-libs-2.9.1-1.amzn2023.0.3.x86_64                                                                                          3/7 
+  Verifying        : libunwind-1.4.0-5.amzn2023.0.2.x86_64                                                                                                4/7 
+  Verifying        : generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch                                                                                    5/7 
+  Verifying        : nginx-filesystem-1:1.24.0-1.amzn2023.0.2.noarch                                                                                      6/7 
+  Verifying        : nginx-mimetypes-2.1.49-3.amzn2023.0.3.noarch                                                                                         7/7 
+==============================================================================================================================================================
+WARNING:
+  A newer release of "Amazon Linux" is available.
+
+  Available Versions:
+
+  Version 2023.4.20240319:
+    Run the following command to upgrade to 2023.4.20240319:
+
+      dnf upgrade --releasever=2023.4.20240319
+
+    Release notes:
+     https://docs.aws.amazon.com/linux/al2023/release-notes/relnotes-2023.4.20240319.html
+
+==============================================================================================================================================================
+
+Installed:
+  generic-logos-httpd-18.0.0-12.amzn2023.0.3.noarch      gperftools-libs-2.9.1-1.amzn2023.0.3.x86_64      libunwind-1.4.0-5.amzn2023.0.2.x86_64               
+  nginx-1:1.24.0-1.amzn2023.0.2.x86_64                   nginx-core-1:1.24.0-1.amzn2023.0.2.x86_64        nginx-filesystem-1:1.24.0-1.amzn2023.0.2.noarch     
+  nginx-mimetypes-2.1.49-3.amzn2023.0.3.noarch          
+
+Complete!
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ vim /etc/nginx/conf.d/flask-app.confvim /etc/nginx/conf.d/flask-app.conf
+2 files to edit
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ vim /etc/nginx/conf.d/flask-app.conf
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ ls
+__pycache__  app.py  templates  venv
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ pwd
+/home/ec2-user/myflask-proj
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ cd .
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ cd /
+(venv) [ec2-user@ip-172-31-89-154 /]$ ls
+bin  boot  dev  etc  home  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+(venv) [ec2-user@ip-172-31-89-154 /]$ cd etc
+(venv) [ec2-user@ip-172-31-89-154 etc]$ ls
+DIR_COLORS                chkconfig.d      dnf            gshadow-            krb5.conf.d     mke2fs.conf     passwd-    request-key.conf  ssh                 tmpfiles.d
+DIR_COLORS.lightbgcolor   chrony.conf      dracut.conf    gss                 ld.so.cache     modprobe.d      pkcs11     request-key.d     ssl                 trusted-key.key
+GREP_COLORS               chrony.d         dracut.conf.d  gssproxy            ld.so.conf      modules-load.d  pkgconfig  resolv.conf       sssd                udev
+NetworkManager            chrony.keys      environment    hibinit-config.cfg  ld.so.conf.d    motd            pki        rpc               statetab.d          update-motd.d
+X11                       cifs-utils       ethertypes     host.conf           libaudit.conf   motd.d          pm         rpm               subgid              vimrc
+acpi                      cloud            exports        hostname            libibverbs.d    mtab            popt.d     rsyncd.conf       subgid-             virc
+adjtime                   cron.daily       exports.d      hosts               libnl           nanorc          printcap   rsyslog.d         subuid              wgetrc
+aliases                   cron.hourly      filesystems    idmapd.conf         libreport       netconfig       profile    rwtab.d           subuid-             xattr.conf
+alternatives              cron.monthly     fstab          image-id            libuser.conf    networks        profile.d  sasl2             sudo.conf           xdg
+amazon                    cron.weekly      gcrypt         init.d              locale.conf     nfs.conf        protocols  screenrc          sudoers             yum.repos.d
+amazon-linux-release      crontab          gnupg          inittab             localtime       nfsmount.conf   rc.d       security          sudoers.d
+amazon-linux-release-cpe  crypto-policies  groff          inputrc             login.defs      nginx           rc0.d      selinux           sysconfig
+at.deny                   csh.cshrc        group          iproute2            logrotate.conf  nsswitch.conf   rc1.d      services          sysctl.conf
+audit                     csh.login        group-         issue               logrotate.d     openldap        rc2.d      sestatus.conf     sysctl.d
+bash_completion.d         dbus-1           grub.d         issue.net           lsm             opt             rc3.d      shadow            system-release
+bashrc                    default          grub2-efi.cfg  kernel              machine-id      os-release      rc4.d      shadow-           system-release-cpe
+bindresvport.blacklist    depmod.d         grub2.cfg      keyutils            magic           pam.d           rc5.d      shells            systemd
+binfmt.d                  dhcp             gshadow        krb5.conf           man_db.conf     passwd          rc6.d      skel              terminfo
+(venv) [ec2-user@ip-172-31-89-154 etc]$ cd nginx
+(venv) [ec2-user@ip-172-31-89-154 nginx]$ ls
+conf.d     fastcgi.conf          fastcgi_params          koi-utf  mime.types          nginx.conf          scgi_params          uwsgi_params          win-utf
+default.d  fastcgi.conf.default  fastcgi_params.default  koi-win  mime.types.default  nginx.conf.default  scgi_params.default  uwsgi_params.default
+(venv) [ec2-user@ip-172-31-89-154 nginx]$ cd conf.d
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ ls
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ pwd
+/etc/nginx/conf.d
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ vi flask-app.conf
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ ls
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ cd ..
+(venv) [ec2-user@ip-172-31-89-154 nginx]$ ls
+conf.d     fastcgi.conf          fastcgi_params          koi-utf  mime.types          nginx.conf          scgi_params          uwsgi_params          win-utf
+default.d  fastcgi.conf.default  fastcgi_params.default  koi-win  mime.types.default  nginx.conf.default  scgi_params.default  uwsgi_params.default
+(venv) [ec2-user@ip-172-31-89-154 nginx]$ ls -l
+total 96
+drwxr-xr-x. 2 root root     6 Oct 13 13:33 conf.d
+drwxr-xr-x. 2 root root     6 Oct 13 13:33 default.d
+-rw-r--r--. 1 root root  1077 Oct 13 13:33 fastcgi.conf
+-rw-r--r--. 1 root root  1077 Oct 13 13:33 fastcgi.conf.default
+-rw-r--r--. 1 root root  1007 Oct 13 13:33 fastcgi_params
+-rw-r--r--. 1 root root  1007 Oct 13 13:33 fastcgi_params.default
+-rw-r--r--. 1 root root  2837 Oct 13 13:33 koi-utf
+-rw-r--r--. 1 root root  2223 Oct 13 13:33 koi-win
+-rw-r--r--. 1 root root 35272 Feb  1  2023 mime.types
+-rw-r--r--. 1 root root  5349 Oct 13 13:33 mime.types.default
+-rw-r--r--. 1 root root  2305 Oct 13 13:32 nginx.conf
+-rw-r--r--. 1 root root  2656 Oct 13 13:33 nginx.conf.default
+-rw-r--r--. 1 root root   636 Oct 13 13:33 scgi_params
+-rw-r--r--. 1 root root   636 Oct 13 13:33 scgi_params.default
+-rw-r--r--. 1 root root   664 Oct 13 13:33 uwsgi_params
+-rw-r--r--. 1 root root   664 Oct 13 13:33 uwsgi_params.default
+-rw-r--r--. 1 root root  3610 Oct 13 13:33 win-utf
+(venv) [ec2-user@ip-172-31-89-154 nginx]$ chmod -R 0755 conf.d
+chmod: changing permissions of 'conf.d': Operation not permitted
+(venv) [ec2-user@ip-172-31-89-154 nginx]$ cd conf.d/
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ sudo vi flask-app.conf
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ sudo vi flask-app.conf
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ sudo vi /etc/nginx/nginx.conf
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ pwd
+/etc/nginx/conf.d
+(venv) [ec2-user@ip-172-31-89-154 conf.d]$ cd /
+(venv) [ec2-user@ip-172-31-89-154 /]$ ls
+bin  boot  dev  etc  home  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+(venv) [ec2-user@ip-172-31-89-154 /]$ cd usr/
+(venv) [ec2-user@ip-172-31-89-154 usr]$ ls
+bin  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
+(venv) [ec2-user@ip-172-31-89-154 usr]$ cd /
+(venv) [ec2-user@ip-172-31-89-154 /]$ cd home
+(venv) [ec2-user@ip-172-31-89-154 home]$ ls
+ec2-user
+(venv) [ec2-user@ip-172-31-89-154 home]$ cd ec2-user/
+(venv) [ec2-user@ip-172-31-89-154 ~]$ ls
+get-pip.py  myflask-proj
+(venv) [ec2-user@ip-172-31-89-154 ~]$ cd myflask-proj/
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ ls
+__pycache__  app.py  templates  venv
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ sudo systemctl restart nginx
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ ls
+__pycache__  app.py  templates  venv
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ tail /var/log/nginx/error.log
+2024/03/21 22:28:38 [notice] 85093#85093: using the "epoll" event method
+2024/03/21 22:28:38 [notice] 85093#85093: nginx/1.24.0
+2024/03/21 22:28:38 [notice] 85093#85093: OS: Linux 6.1.79-99.164.amzn2023.x86_64
+2024/03/21 22:28:38 [notice] 85093#85093: getrlimit(RLIMIT_NOFILE): 65535:65535
+2024/03/21 22:28:38 [notice] 85094#85094: start worker processes
+2024/03/21 22:28:38 [notice] 85094#85094: start worker process 85095
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ nohup gunicorn -w 1 -b 127.0.0.1:5000 app:app > gunicorn.log 2>&1 &
+[1] 85098
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ sudo tail -n 20 /var/log/nginx/error.log
+2024/03/21 22:28:38 [notice] 85093#85093: using the "epoll" event method
+2024/03/21 22:28:38 [notice] 85093#85093: nginx/1.24.0
+2024/03/21 22:28:38 [notice] 85093#85093: OS: Linux 6.1.79-99.164.amzn2023.x86_64
+2024/03/21 22:28:38 [notice] 85093#85093: getrlimit(RLIMIT_NOFILE): 65535:65535
+2024/03/21 22:28:38 [notice] 85094#85094: start worker processes
+2024/03/21 22:28:38 [notice] 85094#85094: start worker process 85095
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ tail -f gunicorn.log
+nohup: ignoring input
+[2024-03-21 22:29:40 +0000] [85098] [INFO] Starting gunicorn 21.2.0
+[2024-03-21 22:29:40 +0000] [85098] [INFO] Listening at: http://127.0.0.1:5000 (85098)
+[2024-03-21 22:29:40 +0000] [85098] [INFO] Using worker: sync
+[2024-03-21 22:29:40 +0000] [85099] [INFO] Booting worker with pid: 85099
+^C
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ ls
+__pycache__  app.py  gunicorn.log  templates  venv
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ cd templates/
+(venv) [ec2-user@ip-172-31-89-154 templates]$ ls
+500.html  index.html
+(venv) [ec2-user@ip-172-31-89-154 templates]$ ls
+500.html  index.html
+(venv) [ec2-user@ip-172-31-89-154 templates]$ sudo vi index.html 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ sudo vi index.html 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ pkill gunicorn
+(venv) [ec2-user@ip-172-31-89-154 templates]$ pkill gunicorn
+[1]+  Done                    nohup gunicorn -w 1 -b 127.0.0.1:5000 app:app > gunicorn.log 2>&1  (wd: ~/myflask-proj)
+(wd now: ~/myflask-proj/templates)
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ nohup gunicorn -w 1 -b 127.0.0.1:5000 app:app > gunicorn.log 2>&1 &
+[1] 85679
+(venv) [ec2-user@ip-172-31-89-154 templates]$ tail -f gunicorn.log
+  File "/usr/lib64/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'app'
+[2024-03-21 22:41:52 +0000] [85680] [INFO] Worker exiting (pid: 85680)
+[2024-03-21 22:41:52 +0000] [85679] [ERROR] Worker (pid:85680) exited with code 3
+[2024-03-21 22:41:52 +0000] [85679] [ERROR] Shutting down: Master
+[2024-03-21 22:41:52 +0000] [85679] [ERROR] Reason: Worker failed to boot.
+^C[1]+  Exit 3                  nohup gunicorn -w 1 -b 127.0.0.1:5000 app:app > gunicorn.log 2>&1
+
+(venv) [ec2-user@ip-172-31-89-154 templates]$ pkill gunicorn
+(venv) [ec2-user@ip-172-31-89-154 templates]$ tail -f gunicorn.log
+  File "/usr/lib64/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'app'
+[2024-03-21 22:41:52 +0000] [85680] [INFO] Worker exiting (pid: 85680)
+[2024-03-21 22:41:52 +0000] [85679] [ERROR] Worker (pid:85680) exited with code 3
+[2024-03-21 22:41:52 +0000] [85679] [ERROR] Shutting down: Master
+[2024-03-21 22:41:52 +0000] [85679] [ERROR] Reason: Worker failed to boot.
+^C
+(venv) [ec2-user@ip-172-31-89-154 templates]$ nohup gunicorn -w 1 -b 127.0.0.1:5000 app:app > gunicorn.log 2>&1 &
+[1] 85732
+(venv) [ec2-user@ip-172-31-89-154 templates]$ tail -f gunicorn.log
+  File "/usr/lib64/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'app'
+[2024-03-21 22:42:53 +0000] [85733] [INFO] Worker exiting (pid: 85733)
+[2024-03-21 22:42:53 +0000] [85732] [ERROR] Worker (pid:85733) exited with code 3
+[2024-03-21 22:42:53 +0000] [85732] [ERROR] Shutting down: Master
+[2024-03-21 22:42:53 +0000] [85732] [ERROR] Reason: Worker failed to boot.
+^C
+[1]+  Exit 3                  nohup gunicorn -w 1 -b 127.0.0.1:5000 app:app > gunicorn.log 2>&1
+(venv) [ec2-user@ip-172-31-89-154 templates]$ sudo systemctl restart nginx
+(venv) [ec2-user@ip-172-31-89-154 templates]$ sudo tail -n 20 /var/log/nginx/error.log
+2024/03/21 22:42:17 [error] 85095#85095: *16 open() "/home/ec2-user/myflask-proj/favicon.ico" failed (13: Permission denied), client: 73.133.192.111, server: ec2-52-66-143-134.ap-south-1.compute.amazonaws.com, request: "GET /favicon.ico HTTP/1.1", host: "44.201.178.43", referrer: "http://44.201.178.43/"
+2024/03/21 22:42:59 [error] 85095#85095: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 73.133.192.111, server: ec2-52-66-143-134.ap-south-1.compute.amazonaws.com, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5000/", host: "44.201.178.43"
+2024/03/21 22:42:59 [error] 85095#85095: *16 open() "/home/ec2-user/myflask-proj/templates/500.html" failed (13: Permission denied), client: 73.133.192.111, server: ec2-52-66-143-134.ap-south-1.compute.amazonaws.com, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5000/", host: "44.201.178.43"
+2024/03/21 22:43:00 [error] 85095#85095: *16 open() "/home/ec2-user/myflask-proj/favicon.ico" failed (13: Permission denied), client: 73.133.192.111, server: ec2-52-66-143-134.ap-south-1.compute.amazonaws.com, request: "GET /favicon.ico HTTP/1.1", host: "44.201.178.43", referrer: "http://44.201.178.43/"
+2024/03/21 22:43:05 [error] 85095#85095: *16 connect() failed (111: Connection refused) while connecting to upstream, client: 73.133.192.111, server: ec2-52-66-143-134.ap-south-1.compute.amazonaws.com, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5000/", host: "44.201.178.43"
+2024/03/21 22:43:05 [error] 85095#85095: *16 open() "/home/ec2-user/myflask-proj/templates/500.html" failed (13: Permission denied), client: 73.133.192.111, server: ec2-52-66-143-134.ap-south-1.compute.amazonaws.com, request: "GET / HTTP/1.1", upstream: "http://127.0.0.1:5000/", host: "44.201.178.43"
+2024/03/21 22:43:06 [error] 85095#85095: *16 open() "/home/ec2-user/myflask-proj/favicon.ico" failed (13: Permission denied), client: 73.133.192.111, server: ec2-52-66-143-134.ap-south-1.compute.amazonaws.com, request: "GET /favicon.ico HTTP/1.1", host: "44.201.178.43", referrer: "http://44.201.178.43/"
+2024/03/21 22:46:38 [notice] 85094#85094: signal 3 (SIGQUIT) received from 1, shutting down
+2024/03/21 22:46:38 [notice] 85095#85095: gracefully shutting down
+2024/03/21 22:46:38 [notice] 85095#85095: exiting
+2024/03/21 22:46:38 [notice] 85095#85095: exit
+2024/03/21 22:46:38 [notice] 85094#85094: signal 17 (SIGCHLD) received from 85095
+2024/03/21 22:46:38 [notice] 85094#85094: worker process 85095 exited with code 0
+2024/03/21 22:46:38 [notice] 85094#85094: exit
+2024/03/21 22:46:38 [notice] 85894#85894: using the "epoll" event method
+2024/03/21 22:46:38 [notice] 85894#85894: nginx/1.24.0
+2024/03/21 22:46:38 [notice] 85894#85894: OS: Linux 6.1.79-99.164.amzn2023.x86_64
+2024/03/21 22:46:38 [notice] 85894#85894: getrlimit(RLIMIT_NOFILE): 65535:65535
+2024/03/21 22:46:38 [notice] 85895#85895: start worker processes
+2024/03/21 22:46:38 [notice] 85895#85895: start worker process 85896
+(venv) [ec2-user@ip-172-31-89-154 templates]$ nohup gunicorn -w 1 -b 127.0.0.1:5000 app:app > gunicorn.log 2>&1 &
+[1] 85949
+(venv) [ec2-user@ip-172-31-89-154 templates]$ tail -f gunicorn.log
+  File "/usr/lib64/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'app'
+[2024-03-21 22:48:34 +0000] [85950] [INFO] Worker exiting (pid: 85950)
+[2024-03-21 22:48:34 +0000] [85949] [ERROR] Worker (pid:85950) exited with code 3
+[2024-03-21 22:48:34 +0000] [85949] [ERROR] Shutting down: Master
+[2024-03-21 22:48:34 +0000] [85949] [ERROR] Reason: Worker failed to boot.
+
+q^C
+[1]+  Exit 3                  nohup gunicorn -w 1 -b 127.0.0.1:5000 app:app > gunicorn.log 2>&1
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ 
+(venv) [ec2-user@ip-172-31-89-154 templates]$ ls
+500.html  gunicorn.log  index.html
+(venv) [ec2-user@ip-172-31-89-154 templates]$ cd ..
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ pkill gunicorn
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ nohup gunicorn -w 1 -b 127.0.0.1:5000 app:app > gunicorn.log 2>&1 &
+[1] 86057
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ tail -f gunicorn.log
+nohup: ignoring input
+[2024-03-21 22:51:36 +0000] [86057] [INFO] Starting gunicorn 21.2.0
+[2024-03-21 22:51:36 +0000] [86057] [INFO] Listening at: http://127.0.0.1:5000 (86057)
+[2024-03-21 22:51:36 +0000] [86057] [INFO] Using worker: sync
+[2024-03-21 22:51:36 +0000] [86058] [INFO] Booting worker with pid: 86058
+^C
+(venv) [ec2-user@ip-172-31-89-154 myflask-proj]$ 

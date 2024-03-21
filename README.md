@@ -1,3 +1,28 @@
+# Redeploy of 2024-03-21
+
+## 1 - Startup EC2 server
+
+## 2 - Login to the server via terminal
+
+## 3 - Install packages on the server
+
+## 4 -- 
+
+
+# Links
+https://docs.gunicorn.org/en/stable/run.html#commonly-used-arguments
+https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https
+https://github.com/avizway1/flask-installation/tree/main
+https://sentry.io/answers/redirect-to-a-url-in-flask/#:~:text=Redirection%20in%20Flask%20can%20be,same%20application%20and%20external%20websites.
+https://www.atmos.albany.edu/daes/atmclasses/atm350/vi_cheat_sheet.pdf
+https://docs.gunicorn.org/en/stable/deploy.html
+https://www.youtube.com/watch?v=vDFzjmmRwoU
+https://github.com/avizway1/flask-installation/tree/main
+https://certbot.eff.org/instructions?ws=nginx&os=pip
+https://phoenixnap.com/kb/how-to-install-pip-on-centos-8
+https://cs.nginx.com/static/instr/amazonlinux2023.html
+
+
 
 # For more information on configuration, see:
 #   * Official English Documentation: http://nginx.org/en/docs/
